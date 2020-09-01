@@ -15,7 +15,7 @@ const Index = (props) => {
 Index.getInitialProps = async function (context) {
     // It's important to default the slug so that it doesn't return "undefined"
     const { slug = "" } = context.query;
-    const query = groq`*[_type == "post"][0]{ title }`;
+    const query = groq`*[_type == "event"][0]`;
     return await client.fetch(query, { slug });
 };
 
