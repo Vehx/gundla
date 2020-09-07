@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Navbar from './navbar';
-import Footer from './footer';
+import {Navbar} from './navbar';
+import {Footer} from './footer';
 
-const Layout = (props) => (
+export const Layout = (props) => (
   <div>
     <Head>
       <title>{props.title || 'Gundla Gårdscafé'}</title>
@@ -12,5 +12,3 @@ const Layout = (props) => (
     <Footer />
   </div>
 );
-
-export default Layout;
