@@ -1,69 +1,56 @@
 import client from "../client";
 import groq from "groq";
-import moment from "moment";
-import Layout from "../components/layout";
-import Event from "../components/event";
+import { Layout } from "../components/layout";
+import { Event } from "../components/event";
+import { EventHero } from "../components/eventHero";
+import { localDateConvert } from "../functions/localDateConvert";
+import { localTimeConvert } from "../functions/localTimeConvert";
+import { capitalizeFirstLetter } from "../functions/capitalizeFirstLetter";
 
 const Events = (props) => {
-  const {
-    title = "Missing title",
-    startTime = "Missing start time",
-    endTime = "Missing end time",
-    slug = "Missing slug",
-    shortDescription = "Missing short description",
-    description = "Missing description",
-  } = props;
+  const eventsArray = [];
+  for (const event in props) {
+    eventsArray.push(props[event]);
+  }
 
-  const localTimeConvert = (timeStamp) => {
-    timeStamp = moment(timeStamp).toDate();
-    const options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return timeStamp.toLocaleDateString("sv", options);
-  };
+  const eventsComponent = [];
+  for (let i = 1; i < eventsArray.length -1; i++) {
+    const el = eventsArray[i];
 
-  // var date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
-  // console.log(date);
-  // console.log(startTime);
-  // var options = {
-  //   weekday: "long",
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // };
-  // console.log(date.toLocaleDateString("sv", options));
-
-  // console.log(moment(startTime).toDate());
-  // console.log(startTime);
-  const localStartTime = localTimeConvert(startTime);
-  const localEndTime = localTimeConvert(endTime);
-
-  // console.log(localStartTime);
-  console.log(props);
-  return (
-    <div>
-      <h1>Detta är eventssidan i plural</h1>
-      <p>{title}</p>
-      <p>{localStartTime}</p>
-      <p>{startTime}</p>
+    eventsComponent.push(
       <Event
-        title={title}
-        excerpt={shortDescription}
-        startTime={localStartTime}
-        endTime={localEndTime}
-        slug={`event/${slug.current}`}
+        key={el._id}
+        title={el.title}
+        startDate={capitalizeFirstLetter(localDateConvert(el.startTime))}
+        endDate={capitalizeFirstLetter(localDateConvert(el.endTime))}
+        startTime={localTimeConvert(el.startTime)}
+        endTime={localTimeConvert(el.endTime)}
+        shortDescription={el.shortDescription}
+        slug={el.slug}
       />
-    </div>
+    );
+  }
+
+  return (
+    <Layout>
+      <h1>Händer på Gundla</h1>
+      <EventHero
+        image={eventsArray[0].image}
+        title={eventsArray[0].title}
+        startTime={capitalizeFirstLetter(localDateConvert(eventsArray[0].startTime))}
+        endTime={capitalizeFirstLetter(localDateConvert(eventsArray[0].endTime))}
+        shortDescription={eventsArray[0].shortDescription}
+      />
+      <h2>Fler Evenemang</h2>
+      {eventsComponent}
+    </Layout>
   );
 };
 
 Events.getInitialProps = async function (context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
-  const query = groq`*[_type == "event"][0]|order(date)`;
+  const query = groq`*[_type == "event"]|order(date)`;
   return await client.fetch(query, { slug });
 };
 

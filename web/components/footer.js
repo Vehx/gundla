@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Footer = (props) => {
+export const Footer = (props) => {
   return (
     <footer>
       <div>Social media Facebook Instagram</div>
@@ -59,5 +59,3 @@ const Footer = (props) => {
     </footer>
   );
 };
-
-export default Footer;
