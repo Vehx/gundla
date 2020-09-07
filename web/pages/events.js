@@ -2,6 +2,7 @@ import client from "../client";
 import groq from "groq";
 import moment from "moment";
 import Layout from "../components/layout";
+import Event from "../components/event";
 
 const Events = (props) => {
   const {
@@ -14,28 +15,33 @@ const Events = (props) => {
   } = props;
 
   const localTimeConvert = (timeStamp) => {
-    return moment
-      .parseZone(timeStamp)
-      .local()
-      .format("dddd, MMMM Do YYYY, h:mm:ss a");
+    timeStamp = moment(timeStamp).toDate();
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return timeStamp.toLocaleDateString("sv", options);
   };
 
-  var date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
-  console.log(date);
-  console.log(startTime);
-  var options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  console.log(date.toLocaleDateString("sv", options));
+  // var date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
+  // console.log(date);
+  // console.log(startTime);
+  // var options = {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // };
+  // console.log(date.toLocaleDateString("sv", options));
 
-  console.log(startTime);
+  // console.log(moment(startTime).toDate());
+  // console.log(startTime);
   const localStartTime = localTimeConvert(startTime);
   const localEndTime = localTimeConvert(endTime);
 
-  console.log(localStartTime);
+  // console.log(localStartTime);
   console.log(props);
   return (
     <div>
@@ -43,6 +49,13 @@ const Events = (props) => {
       <p>{title}</p>
       <p>{localStartTime}</p>
       <p>{startTime}</p>
+      <Event
+        title={title}
+        excerpt={shortDescription}
+        startTime={localStartTime}
+        endTime={localEndTime}
+        slug={`event/${slug.current}`}
+      />
     </div>
   );
 };
