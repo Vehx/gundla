@@ -1,6 +1,6 @@
 import client from "../client";
 import groq from "groq";
-import Layout from "../components/layout";
+import {Layout} from "../components/layout";
 
 const Index = (props) => {
   const { title = "Missing title", name = "Missing name" } = props;

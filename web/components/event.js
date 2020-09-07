@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const Event = (props) => {
-  console.log(props);
+
   return (
     <div>
       <h1>{props.title}</h1>
