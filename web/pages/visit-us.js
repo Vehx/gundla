@@ -1,8 +1,12 @@
+import { Layout } from "../components/layout";
+import { Map } from "../components/map";
+
 const VisitUs = (props) => {
   return (
-    <div>
+    <Layout>
       <h1>Detta är VisitUssidan</h1>
-    </div>
+      <Map />
+    </Layout>
   );
 };
 
