@@ -1,8 +1,15 @@
+import { Layout } from "../components/layout";
+import { ContactForm } from "../components/contactForm";
+
 const Contact = (props) => {
+
+
+
   return (
-    <div>
+    <Layout>
       <h1>Detta är kontaktsidan</h1>
-    </div>
+      <ContactForm/>
+    </Layout>
   );
 };
 

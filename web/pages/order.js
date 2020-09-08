@@ -1,8 +1,12 @@
+import { Layout } from "../components/layout";
+import { ContactForm } from "../components/contactForm";
+
 const Order = (props) => {
   return (
-    <div>
+    <Layout>
       <h1>Detta är ordersidan</h1>
-    </div>
+      <ContactForm/>
+    </Layout>
   );
 };
 

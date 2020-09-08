@@ -59,5 +59,14 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "price",
+      title: "Price",
+      type: "string",
+      validation: (Rule) => Rule.required().max(9),
+    },
   ],
+  initialValue: {
+    price: "Gratis",
+  },
 };
