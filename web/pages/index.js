@@ -1,16 +1,23 @@
 import client from "../client";
 import groq from "groq";
-import {Layout} from "../components/layout";
+import { Layout } from "../components/layout";
+import { EventHero } from "../components/eventHero";
+import { getInstagramPictures } from "../functions/getInstagramPictures";
 
 const Index = (props) => {
-  const { title = "Missing title", name = "Missing name" } = props;
-  console.log(props);
+  getInstagramPictures("yrgo_webbutvecklare")
+    .then((pictures) => console.log("Pictures:", pictures))
+    .catch((error) => console.error("Error:", error));
+
   return (
     <Layout>
-      <article>
-        <h1>{title}</h1>
-        <span>By {name}</span>
-      </article>
+      <EventHero
+        image={props.image}
+        title={props.title}
+        startTime={props.startTime}
+        endTime={props.endTime}
+        shortDescription={props.shortDescription}
+      />
     </Layout>
   );
 };
