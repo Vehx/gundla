@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import client from "../client";
 import groq from "groq";
 import { Layout } from "../components/layout";
@@ -5,9 +6,17 @@ import { EventHero } from "../components/eventHero";
 import { getInstagramPictures } from "../functions/getInstagramPictures";
 
 const Index = (props) => {
-  getInstagramPictures("yrgo_webbutvecklare")
-    .then((pictures) => console.log("Pictures:", pictures))
-    .catch((error) => console.error("Error:", error));
+  const [instagramPosts, setInstagramPosts] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await getInstagramPictures("yrgo_webbutvecklare");
+        setInstagramPosts((instagramPosts) => [...instagramPosts, response]);
+      } catch (error) {
+        console.log("Invalid image");
+      }
+    })();
+  }, []);
 
   return (
     <Layout>
@@ -18,6 +27,7 @@ const Index = (props) => {
         endTime={props.endTime}
         shortDescription={props.shortDescription}
       />
+      {instagramPosts}
     </Layout>
   );
 };
