@@ -24,5 +24,16 @@ export default {
       title: "Text with title",
       type: "textWithTitle",
     },
+    {
+      name: "richText",
+      title: "Rich text",
+      type: "richText",
+    },
+    {
+      name: "test",
+      title: "Test text",
+      type: "array",
+      of: [{ type: "block" }, { type: "signature" }],
+    },
   ],
 };
