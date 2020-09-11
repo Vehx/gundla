@@ -17,6 +17,7 @@ import contactInfo from "./contactInfo";
 import contact from "./contact";
 import richText from "./richText";
 import signature from "./signature";
+import imageBlock from "./imageBlock";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -39,5 +40,6 @@ export default createSchema({
     contactInfo,
     richText,
     signature,
+    imageBlock,
   ]),
 });

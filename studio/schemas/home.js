@@ -15,25 +15,16 @@ export default {
       type: "hero",
     },
     {
-      name: "textWithTitleOne",
-      title: "Text with title",
-      type: "textWithTitle",
-    },
-    {
-      name: "textWithTitleTwo",
-      title: "Text with title",
-      type: "textWithTitle",
-    },
-    {
-      name: "richText",
-      title: "Rich text",
-      type: "richText",
-    },
-    {
-      name: "test",
-      title: "Test text",
+      name: "blockSectionOne",
+      title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "signature" }],
+      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+    },
+    {
+      name: "blockSectionTwo",
+      title: "Block section 2",
+      type: "array",
+      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
     },
   ],
 };

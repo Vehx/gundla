@@ -5,6 +5,7 @@ import { Layout } from "../components/layout";
 import { EventHero } from "../components/eventHero";
 import { InstagramImage } from "../components/insatagramImage";
 import { urlFor } from "../functions/urlFor";
+import { MainHero } from "../components/mainHero";
 
 const Index = (props) => {
   console.log(props);
@@ -19,21 +20,32 @@ const Index = (props) => {
   const serializers = {
     types: {
       signature: (props) => <p className="signature">{props.node.title}</p>,
+      imageBlock: (props) => (
+        <img
+          src={urlFor(props.node.image)}
+          alt={props.node.alt}
+          className="image"
+        ></img>
+      ),
     },
   };
 
-  //   const serializers = {
-  //   types: {
-  //     code: props => (
-  //       <pre data-language={props.node.language}>
-  //         <code>{props.node.code}</code>
-  //       </pre>
-  //     )
-  //   }
-  // }
-
   return (
     <Layout>
+      <MainHero
+        title={props.sanity.content.hero.heroTitle}
+        src={urlFor(props.sanity.content.hero.heroImage)}
+        // alt={props.sanity.content.hero.}
+        cta={props.sanity.content.hero.heroCta}
+      />
+      <BlockContent
+        blocks={props.sanity.content.blockSectionOne}
+        serializers={serializers}
+      />
+      <BlockContent
+        blocks={props.sanity.content.blockSectionTwo}
+        serializers={serializers}
+      />
       <EventHero
         image={props.sanity.event.image}
         title={props.sanity.event.title}
@@ -41,11 +53,7 @@ const Index = (props) => {
         endTime={props.sanity.event.endTime}
         shortDescription={props.sanity.event.shortDescription}
       />
-      <BlockContent blocks={props.sanity.content.richText} />
-      <BlockContent
-        blocks={props.sanity.content.test}
-        serializers={serializers}
-      />
+
       <a href="https://www.instagram.com/gundlagardscafe">{instagramImages}</a>
     </Layout>
   );
