@@ -18,6 +18,9 @@ import contact from "./contact";
 import richText from "./richText";
 import signature from "./signature";
 import imageBlock from "./imageBlock";
+import order from "./order";
+import fika from "./fika";
+import mosaic from "./mosaic";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,6 +34,8 @@ export default createSchema({
     event,
     home,
     about,
+    order,
+    fika,
     blockContent,
     hero,
     heroSmall,
@@ -41,5 +46,6 @@ export default createSchema({
     richText,
     signature,
     imageBlock,
+    mosaic,
   ]),
 });
