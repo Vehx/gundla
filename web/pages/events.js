@@ -10,8 +10,8 @@ import { capitalizeFirstLetter } from "../functions/capitalizeFirstLetter";
 const Events = (props) => {
   console.log(props);
   const eventsArray = [];
-  for (const event in props) {
-    eventsArray.push(props[event]);
+  for (const event in props.sanity.content) {
+    eventsArray.push(props.sanity.content[event]);
   }
 
   const eventsComponent = [];
@@ -33,7 +33,7 @@ const Events = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout footer={props.sanity.footer.blockSectionOne}>
       <h1>Händer på Gundla</h1>
       <EventHero
         image={eventsArray[0].image}
@@ -55,8 +55,12 @@ const Events = (props) => {
 Events.getInitialProps = async function (context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
-  const query = groq`*[_type == "event"]|order(startTime)`;
-  return await client.fetch(query, { slug });
+  const query = groq`{ 'content': *[_type == "event"]|order(startTime), 'footer': *[_type == "footer"][0]}`;
+  const sanity = await client.fetch(query, { slug });
+
+  return {
+    sanity,
+  };
 };
 
 export default Events;

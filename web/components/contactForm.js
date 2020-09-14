@@ -1,9 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 
 export const ContactForm = () => {
-const [status, setStatus] = useState("")
-const sendEmail = (ev) => {
-
+  const [status, setStatus] = useState("");
+  const sendEmail = (ev) => {
     ev.preventDefault();
     const form = ev.target;
     const data = new FormData(form);
@@ -20,28 +19,29 @@ const sendEmail = (ev) => {
       }
     };
     xhr.send(data);
-  }
-
+  };
 
   return (
     <form
-        onSubmit={sendEmail}
-        action="https://formspree.io/mgenglzb"
-        method="POST"
-      >
-        <label htmlFor="name">Namn/Organisation:</label>
-        <input type="text" name="name" autoComplete="off" required/>
-        <label htmlFor="telephone">Telefonnummer:</label>
-        <input type="text" name="telephone" autoComplete="off" required/>
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" autoComplete="off" required/>
-        <label htmlFor="message">Meddelande:</label>
-        <input type="text" name="message" autoComplete="off" required/>
-        {status === "SUCCESS" ? <p>Tack! Ditt meddelande är skickat.</p> : <button>Skicka</button>}
-        {status === "ERROR" && <p>Åååånej! Något gick fel.</p>}
-      </form>
+      id="form"
+      onSubmit={sendEmail}
+      action={`https://formspree.io/${process.env.NEXT_PUBLIC_FORM_SPREE_ID}`}
+      method="POST"
+    >
+      <label htmlFor="name">Namn/Organisation:</label>
+      <input type="text" name="name" autoComplete="off" required />
+      <label htmlFor="telephone">Telefonnummer:</label>
+      <input type="text" name="telephone" autoComplete="off" required />
+      <label htmlFor="email">Email:</label>
+      <input type="email" name="email" autoComplete="off" required />
+      <label htmlFor="message">Meddelande:</label>
+      <input type="text" name="message" autoComplete="off" required />
+      {status === "SUCCESS" ? (
+        <p>Tack! Ditt meddelande är skickat.</p>
+      ) : (
+        <button>Skicka</button>
+      )}
+      {status === "ERROR" && <p>Åååånej! Något gick fel.</p>}
+    </form>
   );
 };
-
-
-
