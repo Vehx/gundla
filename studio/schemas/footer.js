@@ -1,6 +1,6 @@
 export default {
-  name: "contact",
-  title: "Contact",
+  name: "footer",
+  title: "Footer",
   type: "document",
   fields: [
     {
@@ -13,7 +13,17 @@ export default {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "contactInfo" }],
+      of: [{ type: "block" }],
+    },
+    {
+      name: "facebookUrl",
+      title: "Facebook url",
+      type: "url",
+    },
+    {
+      name: "instagramUrl",
+      title: "Instagram url",
+      type: "url",
     },
   ],
 };

@@ -1,6 +1,6 @@
 export default {
-  name: "contact",
-  title: "Contact",
+  name: "visitUs",
+  title: "Visit us",
   type: "document",
   fields: [
     {
@@ -13,7 +13,7 @@ export default {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "contactInfo" }],
+      of: [{ type: "block" }],
     },
   ],
 };
