@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import {Navbar} from './navbar';
-import {Footer} from './footer';
+import Head from "next/head";
+import { Navbar } from "./navbar";
+import { Footer } from "./footer";
 
 export const Layout = (props) => (
   <div>
@@ -13,6 +13,6 @@ export const Layout = (props) => (
     </Head>
     <Navbar />
     <div className="container">{props.children}</div>
-    <Footer />
+    <Footer content={props.footer} />
   </div>
 );

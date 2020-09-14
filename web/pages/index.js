@@ -19,7 +19,7 @@ const Index = (props) => {
 
   const serializers = {
     types: {
-      signature: (props) => <p className="signature">{props.node.title}</p>,
+      signature: (props) => <p className="signature">{props.node.text}</p>,
       imageBlock: (props) => (
         <img
           src={urlFor(props.node.image)}
@@ -31,7 +31,7 @@ const Index = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout footer={props.sanity.footer.blockSectionOne}>
       <MainHero
         title={props.sanity.content.hero.heroTitle}
         src={urlFor(props.sanity.content.hero.heroImage)}
@@ -62,7 +62,7 @@ const Index = (props) => {
 Index.getInitialProps = async function (context) {
   // Fetching data from sanity
   const { slug = "" } = context.query;
-  const query = groq`{ 'event':*[_type == "event"][0],'content': *[_type == "home"][0]}`;
+  const query = groq`{ 'event':*[_type == "event"][0],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
   const sanity = await client.fetch(query, { slug });
 
   // Fetching data from instagram
@@ -72,7 +72,13 @@ Index.getInitialProps = async function (context) {
   const jsonDataUrl = `${profileUrl}/?__a=1`;
   const response = await fetch(jsonDataUrl);
   const jsonData = await response.json();
-  const pictures = jsonData.graphql.user.edge_owner_to_timeline_media.edges;
+  const allPictures = jsonData.graphql.user.edge_owner_to_timeline_media.edges;
+  const pictures = [];
+
+  for (let i = 0; i < 4; i++) {
+    const element = allPictures[i];
+    pictures.push(element);
+  }
 
   return {
     sanity,

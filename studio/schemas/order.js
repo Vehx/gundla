@@ -1,6 +1,6 @@
 export default {
-  name: "about",
-  title: "About",
+  name: "order",
+  title: "Order",
   type: "document",
   fields: [
     {
@@ -18,7 +18,7 @@ export default {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+      of: [{ type: "block" }, { type: "imageBlock" }],
     },
   ],
 };

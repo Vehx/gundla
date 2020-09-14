@@ -10,14 +10,10 @@ export default {
       hidden: true,
     },
     {
-      name: "textWithTitle",
-      title: "Text with title",
-      type: "textWithTitle",
-    },
-    {
-      name: "contactInfo",
-      title: "Contact info",
-      type: "contactInfo",
+      name: "blockSectionOne",
+      title: "Block section 1",
+      type: "array",
+      of: [{ type: "block" }, { type: "contactInfo" }],
     },
   ],
 };

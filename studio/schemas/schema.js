@@ -11,13 +11,16 @@ import home from "./home";
 import about from "./about";
 import hero from "./hero";
 import heroSmall from "./heroSmall";
-import textWithTitle from "./textWithTitle";
-import textWithQuote from "./textWithQuote";
 import contactInfo from "./contactInfo";
 import contact from "./contact";
 import richText from "./richText";
 import signature from "./signature";
 import imageBlock from "./imageBlock";
+import order from "./order";
+import fika from "./fika";
+import mosaic from "./mosaic";
+import visitUs from "./visitUs";
+import footer from "./footer";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,15 +34,18 @@ export default createSchema({
     event,
     home,
     about,
+    order,
+    fika,
     blockContent,
     hero,
     heroSmall,
-    textWithTitle,
-    textWithQuote,
     contact,
     contactInfo,
     richText,
     signature,
     imageBlock,
+    mosaic,
+    visitUs,
+    footer,
   ]),
 });

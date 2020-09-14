@@ -1,6 +1,6 @@
 export default {
-  name: "about",
-  title: "About",
+  name: "visitUs",
+  title: "Visit us",
   type: "document",
   fields: [
     {
@@ -10,15 +10,10 @@ export default {
       hidden: true,
     },
     {
-      name: "heroSmall",
-      title: "Hero",
-      type: "heroSmall",
-    },
-    {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+      of: [{ type: "block" }],
     },
   ],
 };
