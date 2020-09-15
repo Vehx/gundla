@@ -31,7 +31,7 @@ const Contact = (props) => {
   };
 
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <BlockContent
         blocks={props.sanity.content.blockSectionOne}
         serializers={serializers}

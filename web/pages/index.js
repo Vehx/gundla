@@ -31,7 +31,7 @@ const Index = (props) => {
   };
 
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <MainHero
         title={props.sanity.content.hero.heroTitle}
         src={urlFor(props.sanity.content.hero.heroImage)}

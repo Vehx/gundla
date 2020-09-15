@@ -13,7 +13,7 @@ const Event = (props) => {
   const dateString = getDateString(startTime, endTime);
 
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <Link href={`/events`}>
         <a>Tillbaka</a>
       </Link>

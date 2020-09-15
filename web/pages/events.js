@@ -8,15 +8,17 @@ import { localTimeConvert } from "../functions/localTimeConvert";
 import { capitalizeFirstLetter } from "../functions/capitalizeFirstLetter";
 
 const Events = (props) => {
-  console.log(props);
+  // console.log(props);
   const eventsArray = [];
   for (const event in props.sanity.content) {
     eventsArray.push(props.sanity.content[event]);
   }
+  console.log(eventsArray[0].startTime);
 
   const eventsComponent = [];
   for (let i = 1; i < eventsArray.length - 1; i++) {
     const el = eventsArray[i];
+    console.log(el.startTime);
 
     eventsComponent.push(
       <Event
@@ -31,9 +33,9 @@ const Events = (props) => {
       />
     );
   }
-
+  console.log(eventsArray);
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <h1>Händer på Gundla</h1>
       <EventHero
         image={eventsArray[0].image}

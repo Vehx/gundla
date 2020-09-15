@@ -6,7 +6,7 @@ import { Map } from "../components/map";
 
 const Visit = (props) => {
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <BlockContent blocks={props.sanity.content.blockSectionOne} />
       <Map />
     </Layout>
