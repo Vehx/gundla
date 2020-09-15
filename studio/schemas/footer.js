@@ -16,6 +16,12 @@ export default {
       of: [{ type: "block" }],
     },
     {
+      name: "blockSectionTwo",
+      title: "Block section 2",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
       name: "facebookUrl",
       title: "Facebook url",
       type: "url",

@@ -25,7 +25,7 @@ const Fika = (props) => {
   };
 
   return (
-    <Layout footer={props.sanity.footer.blockSectionOne}>
+    <Layout footer={props.sanity.footer}>
       <HeroSmall
         src={urlFor(props.sanity.content.heroSmall.image)}
         alt={props.sanity.content.heroSmall.alt}
