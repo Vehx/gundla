@@ -1,6 +1,4 @@
-import BlockContent, {
-  defaultSerializers,
-} from "@sanity/block-content-to-react";
+import BlockContent from "@sanity/block-content-to-react";
 
 export const Footer = (props) => {
   return (
@@ -8,7 +6,7 @@ export const Footer = (props) => {
       <div className="gundla-logo">
         <img src="/gundla-logo-footer.png" alt="Gundla Gårdscafé" />
       </div>
-      <div className="text-block open-hours">
+      <div className="text-block">
         <BlockContent blocks={props.content.blockSectionOne} />
       </div>
       <div className="text-block">
@@ -33,13 +31,9 @@ export const Footer = (props) => {
           footer {
             display: flex;
             flex-direction: column;
-            background-color: #404040;
-            color: #ffffff;
+            background-color: var(--color-vanilla);
+            color: var(--color-chocolate);
             padding: 30px 0;
-          }
-          h3 {
-            margin-bottom: 5px;
-            display: none;
           }
 
           .gundla-logo {
@@ -53,10 +47,6 @@ export const Footer = (props) => {
           .text-block,
           .socials {
             padding: var(--padding-y) var(--padding-x);
-          }
-
-          .open-hours p {
-            margin-top: 5px;
           }
 
           .socials img {

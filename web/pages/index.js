@@ -6,9 +6,9 @@ import { EventHero } from "../components/eventHero";
 import { InstagramImage } from "../components/insatagramImage";
 import { urlFor } from "../functions/urlFor";
 import { MainHero } from "../components/mainHero";
+import { InstagramGrid } from "../components/instagramGrid";
 
 const Index = (props) => {
-  console.log(props);
   const instagramImages = props.pictures.map((picture) => (
     <InstagramImage
       key={picture.node.id}
@@ -34,8 +34,9 @@ const Index = (props) => {
     <Layout footer={props.sanity.footer}>
       <MainHero
         title={props.sanity.content.hero.heroTitle}
+        sub={props.sanity.content.hero.heroSubTitle}
         src={urlFor(props.sanity.content.hero.heroImage)}
-        // alt={props.sanity.content.hero.}
+        alt={props.sanity.content.hero.heroAlt}
         cta={props.sanity.content.hero.heroCta}
       />
       <BlockContent
@@ -54,7 +55,9 @@ const Index = (props) => {
         shortDescription={props.sanity.event.shortDescription}
       />
 
-      <a href="https://www.instagram.com/gundlagardscafe">{instagramImages}</a>
+      <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
+        {instagramImages}
+      </InstagramGrid>
     </Layout>
   );
 };
