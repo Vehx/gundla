@@ -9,6 +9,7 @@ import { MainHero } from "../components/mainHero";
 import { InstagramGrid } from "../components/instagramGrid";
 
 const Index = (props) => {
+  console.log(props);
   const instagramImages = props.pictures.map((picture) => (
     <InstagramImage
       key={picture.node.id}
@@ -30,6 +31,22 @@ const Index = (props) => {
     },
   };
 
+  let eventHeroComponents = [];
+  for (let i = 0; i < 3; i++) {
+    eventHeroComponents.push(
+      <EventHero
+        key={i}
+        image={props.sanity.event[i].image}
+        alt={props.sanity.event[i].alt}
+        title={props.sanity.event[i].title}
+        startTime={props.sanity.event[i].startTime}
+        endTime={props.sanity.event[i].endTime}
+        shortDescription={props.sanity.event[i].shortDescription}
+        isOnHomePage={true}
+      />
+    );
+  }
+
   return (
     <Layout footer={props.sanity.footer}>
       <MainHero
@@ -47,13 +64,23 @@ const Index = (props) => {
         blocks={props.sanity.content.blockSectionTwo}
         serializers={serializers}
       />
-      <EventHero
-        image={props.sanity.event.image}
-        title={props.sanity.event.title}
-        startTime={props.sanity.event.startTime}
-        endTime={props.sanity.event.endTime}
-        shortDescription={props.sanity.event.shortDescription}
-      />
+      <div className="event-hero-container">
+        {eventHeroComponents}
+        <style jsx>{`
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          @media (min-width: 768px) {
+            div {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: start;
+            }
+          }
+        `}</style>
+      </div>
 
       <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
         {instagramImages}
@@ -65,7 +92,7 @@ const Index = (props) => {
 Index.getInitialProps = async function (context) {
   // Fetching data from sanity
   const { slug = "" } = context.query;
-  const query = groq`{ 'event':*[_type == "event"][0],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
+  const query = groq`{ 'event':*[_type == "event"][0..2],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
   const sanity = await client.fetch(query, { slug });
 
   // Fetching data from instagram
