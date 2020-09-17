@@ -26,6 +26,11 @@ export default {
       options: { hotspot: true },
     },
     {
+      name: "alt",
+      title: "Image description",
+      type: "string",
+    },
+    {
       name: "shortDescription",
       title: "Short Description",
       type: "text",

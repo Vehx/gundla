@@ -47,6 +47,7 @@ const Events = (props) => {
           localDateConvert(eventsArray[0].endTime)
         )}
         shortDescription={eventsArray[0].shortDescription}
+        isOnHomePage={false}
       />
       <h2>Fler Evenemang</h2>
       {eventsComponent}

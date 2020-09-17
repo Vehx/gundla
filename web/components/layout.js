@@ -21,6 +21,7 @@ export const Layout = (props) => (
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: var(--paragraph-font);
       }
 
       :root {
@@ -33,6 +34,15 @@ export const Layout = (props) => (
         --color-white: #fff;
         --padding-x: 20px;
         --padding-y: 11px;
+        --max-width: 1200px;
+      }
+
+
+      .container {
+        max-width: var(--max-width);
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
       }
 
 
@@ -46,7 +56,11 @@ export const Layout = (props) => (
       a {
         text-decoration: underline;
         font-family: var(--paragraph-font);
-        color: hotpink;
+        color: var(--color-black);
+      }
+
+      ul {
+        list-style: none;
       }
 
       h1,

@@ -1,10 +1,14 @@
 export const MainHero = (props) => {
   console.log(props);
   return (
-    <div className="container">
-      <img className="background-image" src={props.src} alt={props.alt}></img>
-      <img className="logo-image" src={"./gundla-logo-hero.png"}></img>
-      <div className="flex-container">
+    <div className="hero">
+      <img
+        className="hero__background-image"
+        src={props.src}
+        alt={props.alt}
+      ></img>
+      <img className="hero__logo-image" src={"./gundla-logo-hero.png"}></img>
+      <div className="hero__flex-container">
         <div>
           <h1>{props.title}</h1>
           <h3>{props.sub}</h3>
@@ -13,29 +17,31 @@ export const MainHero = (props) => {
           <button>Besök oss</button>
         </a>
         <a href="#">
-          <img className="arrow-image" src={"./arrow-hero.png"}></img>
+          <img className="hero__arrow-image" src={"./arrow-hero.png"}></img>
         </a>
       </div>
       <style jsx>{`
-        .container {
+        .hero {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
           height: 100vh;
         }
-        .background-image {
+        .hero__background-image {
           position: absolute;
           width: 100%;
           height: 100%;
           z-index: -1;
+          object-fit: cover;
+          object-postion: cover;
         }
-        .logo-image {
+        .hero__logo-image {
           width: 300px;
           margin-top: 57px;
         }
 
-        .flex-container {
+        .hero__flex-container {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -43,7 +49,7 @@ export const MainHero = (props) => {
           height: 300px;
         }
 
-        .flex-container div {
+        .hero__flex-container div {
           text-align: center;
           margin-bottom: 25px;
         }
@@ -62,7 +68,7 @@ export const MainHero = (props) => {
           text-transform: uppercase;
         }
 
-        .arrow-image {
+        .hero__arrow-image {
           margin-top: 50px;
         }
 
@@ -70,6 +76,27 @@ export const MainHero = (props) => {
         h3 {
           text-transform: uppercase;
           color: var(--color-white);
+        }
+        @media (min-width: 768px) {
+          button {
+            font-size: 24px;
+            width: 510px;
+            height: 50px;
+          }
+
+          .hero__flex-container {
+            height: 400px;
+          }
+
+          h1 {
+            font-size: 64px;
+            line-height: 81px;
+          }
+
+          h3 {
+            font-size: 36px;
+            line-height: 45px;
+          }
         }
       `}</style>
     </div>
