@@ -36,6 +36,7 @@ const Contact = (props) => {
         blocks={props.sanity.content.blockSectionOne}
         serializers={serializers}
       />
+
       <ContactForm />
     </Layout>
   );
