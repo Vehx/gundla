@@ -15,16 +15,19 @@ export default {
       type: "hero",
     },
     {
-      name: "blockSectionOne",
-      title: "Block section 1",
-      type: "array",
-      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+      name: "textBlockWithLink",
+      title: "Text block with link",
+      type: "textBlockWithLink",
     },
     {
-      name: "blockSectionTwo",
-      title: "Block section 2",
-      type: "array",
-      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+      name: "imageBlock",
+      title: "Image",
+      type: "imageBlock",
+    },
+    {
+      name: "textBlockWithLinkTwo",
+      title: "Text block with link two",
+      type: "textBlockWithLink",
     },
   ],
 };

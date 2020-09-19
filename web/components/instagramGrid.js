@@ -10,6 +10,12 @@ export const InstagramGrid = (props) => {
         h3 {
           padding-left: 4px;
         }
+        @media (min-width: 768px) {
+          div {
+            padding: 0;
+            display: none;
+          }
+        }
       `}</style>
     </div>
   );

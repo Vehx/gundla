@@ -50,7 +50,6 @@ export const EventHero = (props) => {
       )}
       <style jsx>{`
         .event-hero {
-          width: 337px;
           padding: var(--padding-y) var(--padding-x);
         }
         .event-hero__img-container > img {
@@ -100,6 +99,15 @@ export const EventHero = (props) => {
           display: none;
         }
         @media (min-width: 768px) {
+          .event-hero {
+            width: 337px;
+            padding: 0 0 96px 0;
+          }
+
+          .event-hero h2 {
+            font-size: 24px;
+          }
+
           .event-hero:first-of-type > .event-hero__link {
             display: none;
           }

@@ -21,7 +21,7 @@ export default {
     {
       title: "Hero image description",
       name: "heroAlt",
-      type: "image",
+      type: "string",
     },
     {
       title: "Hero CTA",

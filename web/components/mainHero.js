@@ -1,5 +1,4 @@
 export const MainHero = (props) => {
-  console.log(props);
   return (
     <div className="hero">
       <img
@@ -86,16 +85,6 @@ export const MainHero = (props) => {
 
           .hero__flex-container {
             height: 400px;
-          }
-
-          h1 {
-            font-size: 64px;
-            line-height: 81px;
-          }
-
-          h3 {
-            font-size: 36px;
-            line-height: 45px;
           }
         }
       `}</style>

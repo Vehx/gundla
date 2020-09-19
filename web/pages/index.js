@@ -7,9 +7,11 @@ import { InstagramImage } from "../components/insatagramImage";
 import { urlFor } from "../functions/urlFor";
 import { MainHero } from "../components/mainHero";
 import { InstagramGrid } from "../components/instagramGrid";
+import { TextBlockWithLink } from "../components/textBlockWithLink";
+import { FullScreenImage } from "../components/fullScreenImage";
+import Link from "next/link";
 
 const Index = (props) => {
-  console.log(props);
   const instagramImages = props.pictures.map((picture) => (
     <InstagramImage
       key={picture.node.id}
@@ -17,19 +19,6 @@ const Index = (props) => {
       alt={picture.node.accessibility_caption}
     />
   ));
-
-  const serializers = {
-    types: {
-      signature: (props) => <p className="signature">{props.node.text}</p>,
-      imageBlock: (props) => (
-        <img
-          src={urlFor(props.node.image)}
-          alt={props.node.alt}
-          className="image"
-        ></img>
-      ),
-    },
-  };
 
   let eventHeroComponents = [];
   for (let i = 0; i < 3; i++) {
@@ -56,35 +45,41 @@ const Index = (props) => {
         alt={props.sanity.content.hero.heroAlt}
         cta={props.sanity.content.hero.heroCta}
       />
-      <BlockContent
-        blocks={props.sanity.content.blockSectionOne}
-        serializers={serializers}
+      <TextBlockWithLink
+        title={props.sanity.content.textBlockWithLink.title}
+        paragraph={props.sanity.content.textBlockWithLink.paragraph}
+        url={props.sanity.content.textBlockWithLink.url}
+        urlText={props.sanity.content.textBlockWithLink.urlText}
       />
-      <BlockContent
-        blocks={props.sanity.content.blockSectionTwo}
-        serializers={serializers}
+      <FullScreenImage
+        src={urlFor(props.sanity.content.imageBlock.image)}
+        alt={props.sanity.content.imageBlock.alt}
       />
-      <div className="event-hero-container">
-        {eventHeroComponents}
-        <style jsx>{`
-          div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          @media (min-width: 768px) {
-            div {
-              flex-direction: row;
-              justify-content: space-between;
-              align-items: start;
-            }
-          }
-        `}</style>
-      </div>
+      <TextBlockWithLink
+        title={props.sanity.content.textBlockWithLinkTwo.title}
+        paragraph={props.sanity.content.textBlockWithLinkTwo.paragraph}
+        url={props.sanity.content.textBlockWithLinkTwo.url}
+        urlText={props.sanity.content.textBlockWithLinkTwo.urlText}
+      />
+      <div className="event-hero-container">{eventHeroComponents}</div>
 
       <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
         {instagramImages}
       </InstagramGrid>
+      <style jsx>{`
+        .event-hero-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        @media (min-width: 768px) {
+          .event-hero-container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+          }
+        }
+      `}</style>
     </Layout>
   );
 };

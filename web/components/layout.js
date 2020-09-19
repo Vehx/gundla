@@ -10,18 +10,25 @@ export const Layout = (props) => (
         href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"
         rel="stylesheet"
       />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+      />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
     </Head>
     <Navbar />
     <div className="container">{props.children}</div>
     <Footer content={props.footer} />
     <style jsx global>{`
-      @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: var(--paragraph-font);
+        overflow-x: hidden;
       }
 
       :root {
@@ -34,9 +41,9 @@ export const Layout = (props) => (
         --color-white: #fff;
         --padding-x: 20px;
         --padding-y: 11px;
-        --max-width: 1200px;
+        --max-width: 1045px;
+        --nav-z-index: 2;
       }
-
 
       .container {
         max-width: var(--max-width);
@@ -44,7 +51,6 @@ export const Layout = (props) => (
         flex-direction: column;
         margin: 0 auto;
       }
-
 
       p {
         line-height: 21px;
@@ -77,7 +83,7 @@ export const Layout = (props) => (
         line-height: 23px;
         margin-bottom: 10px;
       }
-      }
+
       h2 {
         font-size: 24px;
         line-height: 30px;
@@ -106,9 +112,27 @@ export const Layout = (props) => (
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
       }
 
-     {/* REMOVE THIS */}
+       {
+        /* REMOVE THIS */
+      }
       img {
         width: 100px;
+      }
+      @media (min-width: 768px) {
+        h3 {
+          font-size: 36px;
+          line-height: 45px;
+          margin-bottom: 10px;
+        }
+
+        h2 {
+          font-size: 36px;
+          line-height: 45px;
+        }
+        h1 {
+          font-size: 64px;
+          line-height: 81px;
+        }
       }
     `}</style>
   </div>
