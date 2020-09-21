@@ -1,21 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
 
 export const NavbarDesktop = (props) => {
-  const navEl = useRef(null);
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  // if (process.browser) {
-  //   let prevScrollpos = window.pageYOffset;
-  //   window.onscroll = () => {
-  //     const currentScrollPos = window.pageYOffset;
-  //     prevScrollpos >= 100 ? setIsAtTop(false) : setIsAtTop(true);
-  //     prevScrollpos = currentScrollPos;
-  //   };
-  // }
+  let isAtTop = props.isAtTop;
 
   return (
-    <nav ref={navEl} className={isAtTop ? "" : "scrolling"}>
+    <nav className={isAtTop ? "" : "scrolling-desktop"}>
       {isAtTop && (
         <img
           className="navbar__logo"
@@ -44,7 +34,7 @@ export const NavbarDesktop = (props) => {
               width: 100%;
             }
 
-            .scrolling {
+            .scrolling-desktop {
               background-color: var(--color-white);
               margin-top: 0;
               position: fixed;

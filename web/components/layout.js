@@ -8,7 +8,17 @@ import { checkAtTop } from "../functions/checkIfAsTop";
 export const Layout = (props) => {
   const [isAtTop, setIsAtTop] = useState(true);
 
-  checkAtTop();
+  useEffect(() => {
+    if (process.browser) {
+      let prevScrollpos = window.pageYOffset;
+      window.onscroll = () => {
+        const currentScrollPos = window.pageYOffset;
+        prevScrollpos >= 100 ? setIsAtTop(false) : setIsAtTop(true);
+        prevScrollpos = currentScrollPos;
+      };
+    }
+  }, [isAtTop]);
+
   return (
     <div>
       <Head>
@@ -26,8 +36,8 @@ export const Layout = (props) => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
       </Head>
-      <Navbar />
-      <NavbarDesktop />
+      <Navbar isAtTop={isAtTop} />
+      <NavbarDesktop isAtTop={isAtTop} />
       <div className="container">{props.children}</div>
       <Footer content={props.footer} />
       <style jsx global>{`
@@ -35,6 +45,7 @@ export const Layout = (props) => {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+
           font-family: var(--paragraph-font);
         }
 

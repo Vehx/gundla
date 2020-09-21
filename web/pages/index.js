@@ -1,6 +1,5 @@
 import client from "../client";
 import groq from "groq";
-import BlockContent from "@sanity/block-content-to-react";
 import { Layout } from "../components/layout";
 import { EventHero } from "../components/eventHero";
 import { InstagramImage } from "../components/insatagramImage";
@@ -9,7 +8,6 @@ import { MainHero } from "../components/mainHero";
 import { InstagramGrid } from "../components/instagramGrid";
 import { TextBlockWithLink } from "../components/textBlockWithLink";
 import { FullScreenImage } from "../components/fullScreenImage";
-import Link from "next/link";
 
 const Index = (props) => {
   const instagramImages = props.pictures.map((picture) => (

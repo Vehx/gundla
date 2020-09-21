@@ -1,22 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
 
 export const Navbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [isAtTop, setIsAtTop] = useState(true);
+  let isAtTop = props.isAtTop;
 
   return (
     <nav>
-      <span>
+      <div className={`hamburger-container ${isAtTop ? "" : "scrolling"}`}>
         {!showMenu && (
-          <img
-            onClick={() => setShowMenu(!showMenu)}
-            src="./hamburger-icon.png"
-            alt="X"
-          />
+          <>
+            <img
+              className="hamburger-icon"
+              onClick={() => setShowMenu(!showMenu)}
+              src={
+                isAtTop ? "./hamburger-icon.png" : "./hamburger-icon-black.png"
+              }
+              alt="X"
+            />
+            {!isAtTop && (
+              <img
+                className={"flower-icon"}
+                src="./gundla-flower.png"
+                alt="gundla flower"
+              />
+            )}
+          </>
         )}
-      </span>
-      <div className={!showMenu ? "active" : ""}>
+      </div>
+      <div className={`navbar-container ${!showMenu ? "active" : ""}`}>
         <img
           onClick={() => setShowMenu(!showMenu)}
           src="./x-icon.png"
@@ -36,16 +48,16 @@ export const Navbar = (props) => {
             overflow-x: hidden;
             z-index: var(--nav-z-index);
           }
-          nav span img,
-          nav div img:first-of-type {
+          nav .hamburger-container .hamburger-icon,
+          nav .navbar-container img:first-of-type {
             width: 40px;
             position: fixed;
             right: 30px;
-            top: 30px;
+            top: 20px;
             z-index: 3;
           }
 
-          div {
+          .navbar-container {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -69,6 +81,23 @@ export const Navbar = (props) => {
           .active {
             transform: translateX(100vw);
           }
+
+          .scrolling {
+            background-color: #fff;
+            width: 100%;
+            height: 72px;
+            z-index: var(--nav-z-index);
+            position: fixed;
+          }
+
+          .flower-icon {
+            width: 40px;
+            position: absolute;
+            left: 30px;
+            top: 4px;
+            z-index: 3;
+          }
+
           @media (min-width: 768px) {
             nav {
               display: none;
