@@ -72,6 +72,7 @@ const Index = (props) => {
           flex-direction: column;
           align-items: center;
         }
+
         @media (min-width: 768px) {
           .event-hero-container {
             flex-direction: row;
