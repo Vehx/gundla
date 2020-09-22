@@ -28,11 +28,12 @@ export const TextBlockWithLink = (props) => {
 
           @media (min-width: 768px) {
             div {
-              padding: 145px 0 60px 0;
+              padding: 145px 200px 60px 200px;
             }
 
             h2 {
               text-align: center;
+              padding-bottom: 40px;
             }
           }
         `}

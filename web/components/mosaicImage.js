@@ -1,20 +1,18 @@
-export const HeroSmall = (props) => {
+export const MosaicImage = (props) => {
   return (
-    <div>
-      <img src={props.src} alt={props.alt}></img>
+    <>
+      <img src={props.src} alt={props.alt} />
       <style jsx>{`
         img {
-          width: 100%;
-          height: 464px;
+          width: calc(100% / 3);
           object-fit: cover;
           object-postion: cover;
         }
         @media (min-width: 768px) {
           img {
-            height: 587px;
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };

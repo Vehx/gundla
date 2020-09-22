@@ -73,7 +73,7 @@ export const Footer = (props) => {
       <style jsx>
         {`
           footer {
-            background-color: var(--color-vanilla);
+            background: url(/footer-mobile.png) no-repeat center center fixed;
             color: var(--color-chocolate);
           }
 

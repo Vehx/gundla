@@ -43,27 +43,29 @@ const Index = (props) => {
         alt={props.sanity.content.hero.heroAlt}
         cta={props.sanity.content.hero.heroCta}
       />
-      <TextBlockWithLink
-        title={props.sanity.content.textBlockWithLink.title}
-        paragraph={props.sanity.content.textBlockWithLink.paragraph}
-        url={props.sanity.content.textBlockWithLink.url}
-        urlText={props.sanity.content.textBlockWithLink.urlText}
-      />
-      <FullScreenImage
-        src={urlFor(props.sanity.content.imageBlock.image)}
-        alt={props.sanity.content.imageBlock.alt}
-      />
-      <TextBlockWithLink
-        title={props.sanity.content.textBlockWithLinkTwo.title}
-        paragraph={props.sanity.content.textBlockWithLinkTwo.paragraph}
-        url={props.sanity.content.textBlockWithLinkTwo.url}
-        urlText={props.sanity.content.textBlockWithLinkTwo.urlText}
-      />
-      <div className="event-hero-container">{eventHeroComponents}</div>
+      <div className="container">
+        <TextBlockWithLink
+          title={props.sanity.content.textBlockWithLink.title}
+          paragraph={props.sanity.content.textBlockWithLink.paragraph}
+          url={props.sanity.content.textBlockWithLink.url}
+          urlText={props.sanity.content.textBlockWithLink.urlText}
+        />
+        <FullScreenImage
+          src={urlFor(props.sanity.content.imageBlock.image)}
+          alt={props.sanity.content.imageBlock.alt}
+        />
+        <TextBlockWithLink
+          title={props.sanity.content.textBlockWithLinkTwo.title}
+          paragraph={props.sanity.content.textBlockWithLinkTwo.paragraph}
+          url={props.sanity.content.textBlockWithLinkTwo.url}
+          urlText={props.sanity.content.textBlockWithLinkTwo.urlText}
+        />
+        <div className="event-hero-container">{eventHeroComponents}</div>
 
-      <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
-        {instagramImages}
-      </InstagramGrid>
+        <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
+          {instagramImages}
+        </InstagramGrid>
+      </div>
       <style jsx>{`
         .event-hero-container {
           display: flex;

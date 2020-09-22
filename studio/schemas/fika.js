@@ -15,10 +15,20 @@ export default {
       type: "heroSmall",
     },
     {
-      name: "blockSectionOne",
-      title: "Block section 1",
+      name: "heading",
+      title: "Heading",
+      type: "string",
+    },
+    {
+      name: "blockSection",
+      title: "Block section",
       type: "array",
-      of: [{ type: "block" }, { type: "mosaic" }],
+      of: [{ type: "block" }],
+    },
+    {
+      name: "mosaic",
+      title: "Mosaic",
+      type: "mosaic",
     },
   ],
 };

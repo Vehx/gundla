@@ -2,42 +2,65 @@ import client from "../client";
 import { Layout } from "../components/layout";
 import groq from "groq";
 import { ContactForm } from "../components/contactForm";
+import { HeroSmall } from "../components/heroSmall";
+import { urlFor } from "../functions/urlFor";
 import BlockContent from "@sanity/block-content-to-react";
 
 const Contact = (props) => {
-  const serializers = {
-    types: {
-      signature: (props) => <p className="signature">{props.node.text}</p>,
-      imageBlock: (props) => (
-        <img
-          src={urlFor(props.node.image)}
-          alt={props.node.alt}
-          className="image"
-        ></img>
-      ),
-      contactInfo: (props) => (
-        <div>
-          <p>
-            <strong>{props.node.adress}</strong>
-          </p>
-          <p>
-            {props.node.zipCode} {props.node.city}
-          </p>
-          <p>{props.node.telephone}</p>
-          <p>{props.node.email}</p>
-        </div>
-      ),
-    },
-  };
-
   return (
     <Layout footer={props.sanity.footer}>
-      <BlockContent
-        blocks={props.sanity.content.blockSectionOne}
-        serializers={serializers}
+      <HeroSmall
+        src={urlFor(props.sanity.content.heroImage.image)}
+        alt={props.sanity.content.heroImage.alt}
       />
-
-      <ContactForm />
+      <div className="contact">
+        <div>
+          <h2>{props.sanity.content.heading}</h2>
+          <BlockContent blocks={props.sanity.content.blockSectionOne} />
+          <div>
+            <p>
+              <strong>{props.sanity.content.contactInfo.adress}</strong>
+            </p>
+            <p>
+              {props.sanity.content.contactInfo.zipCode}{" "}
+              {props.sanity.content.contactInfo.city}
+            </p>
+            <p>Tel. {props.sanity.content.contactInfo.telephone}</p>
+            <p>Email: {props.sanity.content.contactInfo.email}</p>
+          </div>
+          <BlockContent blocks={props.sanity.content.blockSectionTwo} />
+        </div>
+        <ContactForm />
+      </div>
+      <style jsx>{`
+        .contact {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          background-color: var(--color-light-grey);
+          align-items: center;
+          padding: var(--padding-y) var(--padding-x);
+        }
+        .contact > div {
+          max-width: 512px;
+        }
+        h2 {
+          margin-top: 20px;
+          padding-bottom: var(--padding-y);
+        }
+        p {
+          margin-bottom: 0px;
+        }
+        .contact > div > div {
+          margin: 20px 0;
+        }
+        @media (min-width: 768px) {
+          h2,
+          .contact > div > div {
+            text-align: center;
+          }
+        }
+      `}</style>
     </Layout>
   );
 };
