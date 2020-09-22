@@ -15,10 +15,25 @@ export default {
       type: "heroSmall",
     },
     {
+      name: "textBlockWithLink",
+      title: "Text block with link",
+      type: "textBlockWithLink",
+    },
+    {
+      name: "imageBlock",
+      title: "Image",
+      type: "imageBlock",
+    },
+    {
+      name: "heading",
+      title: "Heading",
+      type: "string",
+    },
+    {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "imageBlock" }],
+      of: [{ type: "block" }],
     },
   ],
 };

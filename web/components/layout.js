@@ -7,13 +7,18 @@ import { checkAtTop } from "../functions/checkIfAsTop";
 
 export const Layout = (props) => {
   const [isAtTop, setIsAtTop] = useState(true);
-
+  const onloadOffset = props.isWhitePage ? 0 : 85;
   useEffect(() => {
     if (process.browser) {
       let prevScrollpos = window.pageYOffset;
+      window.onload = () => {
+        window.pageYOffset >= onloadOffset
+          ? setIsAtTop(false)
+          : setIsAtTop(true);
+      };
       window.onscroll = () => {
         const currentScrollPos = window.pageYOffset;
-        prevScrollpos >= 100 ? setIsAtTop(false) : setIsAtTop(true);
+        prevScrollpos >= onloadOffset ? setIsAtTop(false) : setIsAtTop(true);
         prevScrollpos = currentScrollPos;
       };
     }
@@ -57,6 +62,7 @@ export const Layout = (props) => {
           --color-chocolate: #ac794d;
           --color-black: #000;
           --color-white: #fff;
+          --color-light-grey: #fafafa;
           --padding-x: 20px;
           --padding-y: 11px;
           --max-width: 1045px;

@@ -33,6 +33,7 @@ export const TextBlockWithLink = (props) => {
 
             h2 {
               text-align: center;
+              padding-bottom: 40px;
             }
           }
         `}
