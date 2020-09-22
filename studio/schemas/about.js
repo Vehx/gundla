@@ -15,10 +15,36 @@ export default {
       type: "heroSmall",
     },
     {
+      name: "heading",
+      title: "Heading",
+      type: "string",
+    },
+    {
       name: "blockSectionOne",
       title: "Block section 1",
       type: "array",
-      of: [{ type: "block" }, { type: "signature" }, { type: "imageBlock" }],
+      of: [{ type: "block" }],
+    },
+    {
+      name: "imageBlock",
+      title: "Image",
+      type: "imageBlock",
+    },
+    {
+      name: "blockSectionTwo",
+      title: "Block section 2",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "signature",
+      title: "Signature",
+      type: "string",
+    },
+    {
+      name: "imageBlockTwo",
+      title: "Image",
+      type: "imageBlock",
     },
   ],
 };

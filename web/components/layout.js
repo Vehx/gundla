@@ -38,7 +38,7 @@ export const Layout = (props) => {
       </Head>
       <Navbar isAtTop={isAtTop} />
       <NavbarDesktop isAtTop={isAtTop} />
-      <div className="container">{props.children}</div>
+      <div>{props.children}</div>
       <Footer content={props.footer} />
       <style jsx global>{`
         * {
@@ -107,7 +107,7 @@ export const Layout = (props) => {
           line-height: 30px;
         }
         h1 {
-          font-size: 24px;
+          font-size: 36px;
           line-height: 45px;
         }
 
