@@ -15,7 +15,7 @@ export const MainHero = (props) => {
         <a href={props.cta}>
           <button>Besök oss</button>
         </a>
-        <a href="#">
+        <a href="#test">
           <img className="hero__arrow-image" src={"./arrow-hero.png"}></img>
         </a>
       </div>
@@ -23,7 +23,7 @@ export const MainHero = (props) => {
         .hero {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-end;
           align-items: center;
           height: 100vh;
         }
@@ -85,6 +85,9 @@ export const MainHero = (props) => {
 
           .hero__flex-container {
             height: 400px;
+          }
+          .hero__logo-image {
+            display: none;
           }
         }
       `}</style>
