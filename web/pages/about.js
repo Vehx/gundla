@@ -13,37 +13,43 @@ const About = (props) => {
         src={urlFor(props.sanity.content.heroSmall.image)}
         alt={props.sanity.content.heroSmall.alt}
       />
-      <div className="container">
-        <h2 className="about__heading">{props.sanity.content.heading}</h2>
-        <div>
-          <div className="about__text">
-            <BlockContent blocks={props.sanity.content.blockSectionOne} />
+      <div className="background-color">
+        <div className="container">
+          <h2 className="about__heading">{props.sanity.content.heading}</h2>
+          <div>
+            <div className="about__text">
+              <BlockContent blocks={props.sanity.content.blockSectionOne} />
+            </div>
+            <div className="about__mobile-image">
+              <FullScreenImage
+                src={urlFor(props.sanity.content.imageBlock.image)}
+                alt={props.sanity.content.imageBlock.alt}
+              />
+            </div>
+            <div className="about__text">
+              <BlockContent blocks={props.sanity.content.blockSectionTwo} />
+              <p className="signature">{props.sanity.content.signature}</p>
+            </div>
+            <div className="about__mobile-image">
+              <FullScreenImage
+                src={urlFor(props.sanity.content.imageBlockTwo.image)}
+                alt={props.sanity.content.imageBlockTwo.alt}
+              />
+            </div>
           </div>
-          <div className="about__mobile-image">
+          <div className="about__desktop-image">
             <FullScreenImage
               src={urlFor(props.sanity.content.imageBlock.image)}
               alt={props.sanity.content.imageBlock.alt}
             />
           </div>
-          <div className="about__text">
-            <BlockContent blocks={props.sanity.content.blockSectionTwo} />
-            <p className="signature">{props.sanity.content.signature}</p>
-          </div>
-          <div className="about__mobile-image">
-            <FullScreenImage
-              src={urlFor(props.sanity.content.imageBlockTwo.image)}
-              alt={props.sanity.content.imageBlockTwo.alt}
-            />
-          </div>
-        </div>
-        <div className="about__desktop-image">
-          <FullScreenImage
-            src={urlFor(props.sanity.content.imageBlock.image)}
-            alt={props.sanity.content.imageBlock.alt}
-          />
         </div>
       </div>
       <style jsx>{`
+        .background-color {
+          background-color: var(--color-light-grey);
+        }
+
         h2 {
           padding-bottom: var(--padding-y);
         }

@@ -12,6 +12,7 @@ export default () =>
       S.documentListItem().id("fika").schemaType("fika"),
       S.documentListItem().id("visitUs").schemaType("visitUs"),
       S.documentListItem().id("footer").schemaType("footer"),
+      S.documentListItem().id("happenings").schemaType("happenings"),
       // Add a visual divider
       S.divider(),
       // Add the rest of the document types, but filter out the siteSettings type defined above
@@ -25,6 +26,7 @@ export default () =>
             "fika",
             "visitUs",
             "footer",
+            "happenings",
           ].includes(item.getId())
       ),
     ]);

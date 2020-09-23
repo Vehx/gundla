@@ -22,6 +22,7 @@ import mosaic from "./mosaic";
 import visitUs from "./visitUs";
 import footer from "./footer";
 import textBlockWithLink from "./textBlockWithLink";
+import happenings from "./happenings";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -49,5 +50,6 @@ export default createSchema({
     visitUs,
     footer,
     textBlockWithLink,
+    happenings,
   ]),
 });

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
+// import flowerIcon from "./gundla-flower.png";
+// import flowerIcon2 from "../gundla-flower.png";
 
 export const Navbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -14,14 +16,14 @@ export const Navbar = (props) => {
               className="hamburger-icon"
               onClick={() => setShowMenu(!showMenu)}
               src={
-                isAtTop ? "./hamburger-icon.png" : "./hamburger-icon-black.png"
+                isAtTop ? "/hamburger-icon.png" : "/hamburger-icon-black.png"
               }
               alt="X"
             />
             {!isAtTop && (
               <img
                 className={"flower-icon"}
-                src="./gundla-flower.png"
+                src="/gundla-flower.png"
                 alt="gundla flower"
               />
             )}
@@ -29,15 +31,11 @@ export const Navbar = (props) => {
         )}
       </div>
       <div className={`navbar-container ${!showMenu ? "active" : ""}`}>
-        <img
-          onClick={() => setShowMenu(!showMenu)}
-          src="./x-icon.png"
-          alt="X"
-        />
+        <img onClick={() => setShowMenu(!showMenu)} src="/x-icon.png" alt="X" />
         <MenuItems isAtTop={isAtTop} />
         <img
           className="navbar__logo"
-          src="./gundla-logo-footer.png"
+          src="/gundla-logo-footer.png"
           alt="gundla loga"
         />
       </div>
