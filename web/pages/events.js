@@ -16,10 +16,9 @@ const Events = (props) => {
   console.log(eventsArray[0].startTime);
 
   const eventsComponent = [];
-  for (let i = 1; i < eventsArray.length - 1; i++) {
+  for (let i = 1; i < eventsArray.length; i++) {
     const el = eventsArray[i];
-    console.log(el.startTime);
-
+    console.log(props);
     eventsComponent.push(
       <Event
         key={el._id}
@@ -33,24 +32,91 @@ const Events = (props) => {
       />
     );
   }
-  console.log(eventsArray);
-  return (
-    <Layout footer={props.sanity.footer}>
-      <h1>Händer på Gundla</h1>
+  const eventsHeroComponents = [];
+  for (let i = 0; i < 3; i++) {
+    eventsHeroComponents.push(
       <EventHero
-        image={eventsArray[0].image}
-        title={eventsArray[0].title}
-        startTime={capitalizeFirstLetter(
-          localDateConvert(eventsArray[0].startTime)
-        )}
-        endTime={capitalizeFirstLetter(
-          localDateConvert(eventsArray[0].endTime)
-        )}
-        shortDescription={eventsArray[0].shortDescription}
+        key={i}
+        image={props.sanity.content[i].image}
+        alt={props.sanity.content[i].alt}
+        title={props.sanity.content[i].title}
+        startTime={props.sanity.content[i].startTime}
+        endTime={props.sanity.content[i].endTime}
+        shortDescription={props.sanity.content[i].shortDescription}
+        slug={props.sanity.content[i].slug}
         isOnHomePage={false}
       />
-      <h2>Fler Evenemang</h2>
-      {eventsComponent}
+    );
+  }
+
+  return (
+    <Layout footer={props.sanity.footer} isWhitePage>
+      <div className="background-color">
+        <div className="events">
+          <h2 className="events__heading">Kalendarium</h2>
+          <div className="events__hero-container">{eventsHeroComponents}</div>
+          <div className="events__container">
+            <h2 className="events__container-heading">Fler Evenemang</h2>
+            {eventsComponent}
+          </div>
+        </div>
+        <style jsx>{`
+          .background-color {
+            background-color: var(--color-light-grey);
+          }
+
+          .events__heading {
+            padding: 90px 0 20px var(--padding-x);
+          }
+
+          .events {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .events__hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+          }
+
+          .events__container {
+            padding: var(--padding-y) var(--padding-x);
+          }
+
+          .events__container-heading {
+            padding-bottom: 20px;
+          }
+
+          @media (min-width: 768px) {
+            .events {
+              max-width: var(--max-width);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin: 0 auto;
+            }
+
+            .events__hero-container {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: start;
+            }
+
+            .events__container {
+              max-width: 552px;
+              padding: 20px 0;
+            }
+
+            .events__container-heading {
+              text-align: center;
+              padding-bottom: 60px;
+            }
+          }
+        `}</style>
+      </div>
     </Layout>
   );
 };

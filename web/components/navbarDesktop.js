@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
+import Link from "next/link";
 
 export const NavbarDesktop = (props) => {
   let isAtTop = props.isAtTop;
@@ -7,11 +7,15 @@ export const NavbarDesktop = (props) => {
   return (
     <nav className={isAtTop ? "" : "scrolling-desktop"}>
       {isAtTop && (
-        <img
-          className="navbar__logo"
-          src="./gundla-logo-nav-desktop.png"
-          alt="gundla loga"
-        />
+        <Link href="/">
+          <a>
+            <img
+              className="navbar__logo"
+              src="/gundla-logo-nav-desktop.png"
+              alt="gundla loga"
+            />
+          </a>
+        </Link>
       )}
 
       <MenuItems isAtTop={isAtTop} />

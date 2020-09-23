@@ -29,6 +29,7 @@ const Index = (props) => {
         startTime={props.sanity.event[i].startTime}
         endTime={props.sanity.event[i].endTime}
         shortDescription={props.sanity.event[i].shortDescription}
+        slug={props.sanity.event[i].slug}
         isOnHomePage={true}
       />
     );
@@ -43,30 +44,36 @@ const Index = (props) => {
         alt={props.sanity.content.hero.heroAlt}
         cta={props.sanity.content.hero.heroCta}
       />
-      <div className="container">
-        <TextBlockWithLink
-          title={props.sanity.content.textBlockWithLink.title}
-          paragraph={props.sanity.content.textBlockWithLink.paragraph}
-          url={props.sanity.content.textBlockWithLink.url}
-          urlText={props.sanity.content.textBlockWithLink.urlText}
-        />
-        <FullScreenImage
-          src={urlFor(props.sanity.content.imageBlock.image)}
-          alt={props.sanity.content.imageBlock.alt}
-        />
-        <TextBlockWithLink
-          title={props.sanity.content.textBlockWithLinkTwo.title}
-          paragraph={props.sanity.content.textBlockWithLinkTwo.paragraph}
-          url={props.sanity.content.textBlockWithLinkTwo.url}
-          urlText={props.sanity.content.textBlockWithLinkTwo.urlText}
-        />
-        <div className="event-hero-container">{eventHeroComponents}</div>
+      <div className="background-color">
+        <div className="container">
+          <TextBlockWithLink
+            title={props.sanity.content.textBlockWithLink.title}
+            paragraph={props.sanity.content.textBlockWithLink.paragraph}
+            url={props.sanity.content.textBlockWithLink.url}
+            urlText={props.sanity.content.textBlockWithLink.urlText}
+          />
+          <FullScreenImage
+            src={urlFor(props.sanity.content.imageBlock.image)}
+            alt={props.sanity.content.imageBlock.alt}
+          />
+          <TextBlockWithLink
+            title={props.sanity.content.textBlockWithLinkTwo.title}
+            paragraph={props.sanity.content.textBlockWithLinkTwo.paragraph}
+            url={props.sanity.content.textBlockWithLinkTwo.url}
+            urlText={props.sanity.content.textBlockWithLinkTwo.urlText}
+          />
+          <div className="event-hero-container">{eventHeroComponents}</div>
 
-        <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
-          {instagramImages}
-        </InstagramGrid>
+          <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
+            {instagramImages}
+          </InstagramGrid>
+        </div>
       </div>
       <style jsx>{`
+        .background-color {
+          background-color: var(--color-light-grey);
+        }
+
         .event-hero-container {
           display: flex;
           flex-direction: column;
@@ -88,7 +95,7 @@ const Index = (props) => {
 Index.getInitialProps = async function (context) {
   // Fetching data from sanity
   const { slug = "" } = context.query;
-  const query = groq`{ 'event':*[_type == "event"][0..2],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
+  const query = groq`{ 'event':*[_type == "event"]|order(startTime)[0..2],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
   const sanity = await client.fetch(query, { slug });
 
   // Fetching data from instagram

@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Navbar } from "./navbar";
 import { NavbarDesktop } from "./navbarDesktop";
 import { Footer } from "./footer";
-import { checkAtTop } from "../functions/checkIfAsTop";
 
 export const Layout = (props) => {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -50,7 +49,6 @@ export const Layout = (props) => {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
-
           font-family: var(--paragraph-font);
         }
 
@@ -63,6 +61,7 @@ export const Layout = (props) => {
           --color-black: #000;
           --color-white: #fff;
           --color-light-grey: #fafafa;
+          --color-orange: #d56900;
           --padding-x: 20px;
           --padding-y: 11px;
           --max-width: 1045px;
@@ -70,10 +69,12 @@ export const Layout = (props) => {
         }
 
         .container {
+          display: none;
           max-width: var(--max-width);
           display: flex;
           flex-direction: column;
           margin: 0 auto;
+          background-color: var(--color-light-grey);
         }
 
         p {
@@ -136,12 +137,6 @@ export const Layout = (props) => {
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
-         {
-          /* REMOVE THIS */
-        }
-        img {
-          width: 100px;
-        }
         @media (min-width: 768px) {
           h3 {
             font-size: 36px;

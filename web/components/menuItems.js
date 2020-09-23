@@ -8,7 +8,7 @@ export const MenuItems = (props) => {
           <a>
             <p>Hem</p>
             {!props.isAtTop && (
-              <img src="./gundla-flower.png" alt="gundla flower" />
+              <img src="/gundla-flower.png" alt="gundla flower" />
             )}
           </a>
         </Link>
@@ -30,6 +30,11 @@ export const MenuItems = (props) => {
       </li>
       <li>
         <Link href="/events">
+          <a className={props.isAtTop ? "" : "show"}>Evenemang</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/happenings">
           <a className={props.isAtTop ? "" : "show"}>Händer på gundla</a>
         </Link>
       </li>

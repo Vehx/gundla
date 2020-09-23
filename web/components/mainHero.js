@@ -13,7 +13,7 @@ export const MainHero = (props) => {
         autoPlay
         loop
       ></video> */}
-      <img className="hero__logo-image" src={"./gundla-logo-hero.png"}></img>
+      <img className="hero__logo-image" src={"/gundla-logo-hero.png"}></img>
       <div className="hero__flex-container">
         <div>
           <h1>{props.title}</h1>
@@ -23,7 +23,7 @@ export const MainHero = (props) => {
           <button>Besök oss</button>
         </a>
         <a>
-          <img className="hero__arrow-image" src={"./arrow-hero.png"}></img>
+          <img className="hero__arrow-image" src={"/arrow-hero.png"}></img>
         </a>
       </div>
       <style jsx>{`
