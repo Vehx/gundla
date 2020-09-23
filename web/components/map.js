@@ -3,8 +3,8 @@ import ReactMapGL, { Marker } from "react-map-gl";
 
 export const Map = () => {
   const [viewport, setViewport] = useState({
-    width: "100vw",
-    height: "100vh",
+    width: "100%",
+    height: "100%",
     latitude: 57.686411,
     longitude: 12.028276,
     zoom: 13,
@@ -23,16 +23,12 @@ export const Map = () => {
         offsetLeft={-20}
         offsetTop={-10}
       >
-        <div className="marker">Här finns vi!👋</div>
+        <img src="./marker.svg" />
       </Marker>
       <style jsx>
         {`
-          .marker {
-            padding: 10px;
-            color: #fff;
-            cursor: pointer;
-            background: #1978c8;
-            border-radius: 6px;
+          img {
+            width: 35px;
           }
         `}
       </style>

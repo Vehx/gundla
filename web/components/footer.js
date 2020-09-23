@@ -73,7 +73,7 @@ export const Footer = (props) => {
       <style jsx>
         {`
           footer {
-            background: url(/footer-mobile.png) no-repeat center center fixed;
+            background: url(/footer.png) no-repeat bottom center scroll;
             color: var(--color-chocolate);
           }
 
@@ -121,6 +121,9 @@ export const Footer = (props) => {
           }
 
           @media (min-width: 768px) {
+            footer {
+              background: url(/footer-desktop.png) repeat bottom center scroll;
+            }
             .footer-nav {
               display: flex;
               padding: var(--padding-y) var(--padding-x);

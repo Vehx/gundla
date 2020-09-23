@@ -74,6 +74,7 @@ export const Layout = (props) => {
           display: flex;
           flex-direction: column;
           margin: 0 auto;
+          background-color: var(--color-light-grey);
         }
 
         p {
