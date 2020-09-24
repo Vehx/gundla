@@ -32,6 +32,11 @@ export const Footer = (props) => {
                 </Link>
               </li>
               <li>
+                <Link href="/happenings">
+                  <a>Händer på gundla</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/visit-us">
                   <a>Besök oss</a>
                 </Link>
@@ -81,17 +86,18 @@ export const Footer = (props) => {
             max-width: var(--max-width);
             display: flex;
             flex-direction: column;
-            padding: var(--padding-y) 0;
-            margin: 0 auto;
+            padding: 0;
+            margin: -20px auto;
           }
 
           a {
             color: var(--color-chocolate);
             text-decoration: none;
+            line-height: 23px;
           }
 
           .gundla-logo {
-            margin: 0 auto 30px auto;
+            margin: 20px auto 30px auto;
           }
 
           .gundla-logo img {
@@ -123,6 +129,10 @@ export const Footer = (props) => {
           @media (min-width: 768px) {
             footer {
               background: url(/footer-desktop.png) repeat bottom center scroll;
+              height: 465px;
+            }
+            .footer-info {
+              margin-top: 100px;
             }
             .footer-nav {
               display: flex;

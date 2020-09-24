@@ -10,11 +10,9 @@ export const Layout = (props) => {
   useEffect(() => {
     if (process.browser) {
       let prevScrollpos = window.pageYOffset;
-      window.onload = () => {
-        window.pageYOffset >= onloadOffset
-          ? setIsAtTop(false)
-          : setIsAtTop(true);
-      };
+
+      window.pageYOffset >= onloadOffset ? setIsAtTop(false) : setIsAtTop(true);
+
       window.onscroll = () => {
         const currentScrollPos = window.pageYOffset;
         prevScrollpos >= onloadOffset ? setIsAtTop(false) : setIsAtTop(true);

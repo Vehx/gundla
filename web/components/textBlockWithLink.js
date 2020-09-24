@@ -3,7 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 
 export const TextBlockWithLink = (props) => {
   return (
-    <div>
+    <div id={props.id}>
       <h2>{props.title}</h2>
       <BlockContent blocks={props.paragraph} />
       <Link href={props.url}>
@@ -15,7 +15,7 @@ export const TextBlockWithLink = (props) => {
       <style jsx>
         {`
           div {
-            padding: var(--padding-y) var(--padding-x);
+            padding: 40px var(--padding-x);
           }
           h2 {
             padding-bottom: var(--padding-y);
@@ -28,7 +28,7 @@ export const TextBlockWithLink = (props) => {
 
           @media (min-width: 768px) {
             div {
-              padding: 145px 200px 60px 200px;
+              padding: 100px 200px 60px 200px;
             }
 
             h2 {

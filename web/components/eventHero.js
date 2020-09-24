@@ -60,6 +60,7 @@ export const EventHero = (props) => {
           background-color: var(--color-sunny);
           width: 84px;
           height: 52px;
+          padding-top: 2px;
           font-size: 18px;
           color: var(--color-white);
           text-align: center;

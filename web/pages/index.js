@@ -72,6 +72,7 @@ const Index = (props) => {
       <div className="background-color">
         <div className="container">
           <TextBlockWithLink
+            id="about-gundla"
             title={props.sanity.content.textBlockWithLink.title}
             paragraph={props.sanity.content.textBlockWithLink.paragraph}
             url={props.sanity.content.textBlockWithLink.url}
@@ -125,40 +126,7 @@ Index.getInitialProps = async function (context) {
 
   return {
     sanity,
-    // pictures,
   };
 };
 
 export default Index;
-
-// const [instaData, setInstaData] = React.useState("");
-
-//   React.useEffect(() => {
-//     fetch("https://www.instagram.com/gundlagardscafe/?__a=1%22)
-//       .then((resp) => resp.json())
-//       .then((json) => setInstaData(json));
-//   }, [0]);
-
-//   let instaGrid = [];
-
-//   if (instaData) {
-//     instaGrid = instaData.graphql.user.edge_owner_to_timeline_media.edges;
-//   }
-// <InstagramFeed instagramData={instaGrid} />
-// const InstagramFeed = (props) => {
-//   const url = props.instagramData.slice(0, 4);
-
-//   return (
-//     <StyledImage>
-//       {url.map((item, i) => (
-//         <div className="instagramImgWrapper" key={i}>
-//           <a href="https://www.instagram.com/gundlagardscafe/%22%3E
-//             <img loading="lazy" src={item.node.display_url} key={i}></img>
-//           </a>
-//         </div>
-//       ))}
-//     </StyledImage>
-//   );
-// };
-
-// export default InstagramFeed;

@@ -101,6 +101,10 @@ export const MenuItems = (props) => {
           .show {
             color: var(--color-black) !important;
           }
+            ul li a:hover {
+              text-decoration: underline;
+
+            }
           }
         }
       `}</style>

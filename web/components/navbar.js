@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
-// import flowerIcon from "./gundla-flower.png";
-// import flowerIcon2 from "../gundla-flower.png";
 
 export const Navbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);

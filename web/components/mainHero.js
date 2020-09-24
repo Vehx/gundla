@@ -22,7 +22,7 @@ export const MainHero = (props) => {
         <a href={props.cta}>
           <button>Besök oss</button>
         </a>
-        <a>
+        <a href="#about-gundla">
           <img className="hero__arrow-image" src={"/arrow-hero.png"}></img>
         </a>
       </div>
@@ -82,11 +82,12 @@ export const MainHero = (props) => {
         }
 
         .hero__arrow-image {
-          margin-top: 100px;
+          margin-top: 50px;
+          width: 60px;
         }
 
         h1 {
-          margin-bottom: 40px;
+          margin: 40px 0;
         }
 
         h2 {

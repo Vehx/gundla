@@ -17,7 +17,7 @@ const Event = (props) => {
       <div className="background-color">
         <div className="slug">
           <div className="slug__link">
-            <Link href={`/events`}>
+            <Link href={"/events"}>
               <a>
                 <img src="/link-arrow-left.png"></img>Tillbaka
               </a>
