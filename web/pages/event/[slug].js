@@ -20,7 +20,7 @@ const Event = (props) => {
             <Link href={"/events"}>
               <a>
                 <img src="/link-arrow-left.png" alt="arrow" loading="lazy" />
-                Tillbaka
+                Fler evenemang
               </a>
             </Link>
           </div>

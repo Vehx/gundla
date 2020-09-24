@@ -11,7 +11,7 @@ export const NavbarDesktop = (props) => {
           <a>
             <img
               className="navbar__logo"
-              src="/gundla-logo-nav-desktop.png"
+              src="/gundla-logo-hero.png"
               alt="gundla loga"
               loading="lazy"
             />
@@ -46,7 +46,7 @@ export const NavbarDesktop = (props) => {
             }
 
             img {
-              width: 190px;
+              width: 250px;
             }
           }
         `}
