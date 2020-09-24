@@ -13,6 +13,7 @@ export const NavbarDesktop = (props) => {
               className="navbar__logo"
               src="/gundla-logo-nav-desktop.png"
               alt="gundla loga"
+              loading="lazy"
             />
           </a>
         </Link>

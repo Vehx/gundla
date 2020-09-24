@@ -8,7 +8,11 @@ export const MenuItems = (props) => {
           <a>
             <p>Hem</p>
             {!props.isAtTop && (
-              <img src="/gundla-flower.png" alt="gundla flower" />
+              <img
+                src="/gundla-flower.png"
+                alt="gundla flower"
+                loading="lazy"
+              />
             )}
           </a>
         </Link>

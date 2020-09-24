@@ -1,7 +1,7 @@
 export const FullScreenImage = ({ src, alt }) => {
   return (
     <>
-      <img lazyloading="true" src={src} alt={alt} />
+      <img lazyloading="true" src={src} alt={alt} loading="lazy" />
       <style jsx>{`
         img {
           width: 100%;

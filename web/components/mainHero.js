@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const MainHero = (props) => {
   return (
     <div className="hero">
@@ -5,7 +7,8 @@ export const MainHero = (props) => {
         className="hero__background-image"
         src={props.src}
         alt={props.alt}
-      ></img>
+        loading="lazy"
+      />
       {/* <video
         className="hero__background-image"
         src="./video-vertical.mp4"
@@ -13,17 +16,28 @@ export const MainHero = (props) => {
         autoPlay
         loop
       ></video> */}
-      <img className="hero__logo-image" src={"/gundla-logo-hero.png"}></img>
+      <img
+        className="hero__logo-image"
+        src={"/gundla-logo-hero.png"}
+        alt="gundla logo"
+        loading="lazy"
+      />
       <div className="hero__flex-container">
         <div>
           <h1>{props.title}</h1>
           <h2>{props.sub}</h2>
         </div>
-        <a href={props.cta}>
-          <button>Besök oss</button>
-        </a>
+        <Link href={props.cta}>
+          <a>
+            <button>Besök oss</button>
+          </a>
+        </Link>
         <a href="#about-gundla">
-          <img className="hero__arrow-image" src={"/arrow-hero.png"}></img>
+          <picture className="hero__arrow-image">
+            <source media="(min-width:650px)" srcSet="arrow-hero.png" />
+            <source media="(min-width:465px)" srcSet="arrow-hero-mobile.png" />
+            <img src={"/arrow-hero.png"} alt="Pil ned" loading="lazy" />
+          </picture>
         </a>
       </div>
       <style jsx>{`
@@ -81,7 +95,7 @@ export const MainHero = (props) => {
           text-transform: uppercase;
         }
 
-        .hero__arrow-image {
+        .hero__arrow-image img {
           margin-top: 50px;
           width: 60px;
         }
@@ -120,6 +134,10 @@ export const MainHero = (props) => {
           }
           .hero__logo-image {
             display: none;
+          }
+
+          .hero__arrow-image img {
+            width: 146px;
           }
         }
       `}</style>

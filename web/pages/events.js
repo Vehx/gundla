@@ -94,6 +94,7 @@ const Events = (props) => {
               justify-content: center;
               align-items: center;
               margin: 0 auto;
+              padding-top: 20px;
             }
 
             .events__hero-container {

@@ -23,7 +23,7 @@ export const Map = () => {
         offsetLeft={-20}
         offsetTop={-10}
       >
-        <img src="/marker.svg" />
+        <img src="/marker.svg" loading="lazy" />
       </Marker>
       <style jsx>
         {`

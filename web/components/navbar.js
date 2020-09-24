@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MenuItems } from "./menuItems";
+import Link from "next/link";
 
 export const Navbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,24 +18,36 @@ export const Navbar = (props) => {
                 isAtTop ? "/hamburger-icon.png" : "/hamburger-icon-black.png"
               }
               alt="X"
+              loading="lazy"
             />
             {!isAtTop && (
-              <img
-                className={"flower-icon"}
-                src="/gundla-flower.png"
-                alt="gundla flower"
-              />
+              <Link href="/">
+                <a>
+                  <img
+                    className={"flower-icon"}
+                    src="/gundla-flower.png"
+                    alt="gundla flower"
+                    loading="lazy"
+                  />
+                </a>
+              </Link>
             )}
           </>
         )}
       </div>
       <div className={`navbar-container ${!showMenu ? "active" : ""}`}>
-        <img onClick={() => setShowMenu(!showMenu)} src="/x-icon.png" alt="X" />
+        <img
+          onClick={() => setShowMenu(!showMenu)}
+          src="/x-icon.png"
+          alt="X"
+          loading="lazy"
+        />
         <MenuItems isAtTop={isAtTop} />
         <img
           className="navbar__logo"
           src="/gundla-logo-footer.png"
           alt="gundla loga"
+          loading="lazy"
         />
       </div>
 

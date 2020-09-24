@@ -6,7 +6,11 @@ export const Footer = (props) => {
     <footer>
       <div className="footer-container">
         <div className="gundla-logo">
-          <img src="/gundla-logo-footer.png" alt="Gundla Gårdscafé" />
+          <img
+            src="/gundla-logo-footer.png"
+            alt="Gundla Gårdscafé"
+            loading="lazy"
+          />
         </div>
         <div className="footer-info">
           <div className="footer-nav">
@@ -62,6 +66,7 @@ export const Footer = (props) => {
                 width="32"
                 src="/facebook-icon.png"
                 alt="Facebook ikon"
+                loading="lazy"
               />
             </a>
             <a href={props.content.instagramUrl}>
@@ -70,6 +75,7 @@ export const Footer = (props) => {
                 width="32"
                 src="/instagram-icon.png"
                 alt="Instagram ikon"
+                loading="lazy"
               />
             </a>
           </div>
@@ -78,7 +84,7 @@ export const Footer = (props) => {
       <style jsx>
         {`
           footer {
-            background: url(/footer.png) no-repeat bottom center scroll;
+            background: url(/footer.png) repeat bottom scroll;
             color: var(--color-chocolate);
           }
 
@@ -87,7 +93,7 @@ export const Footer = (props) => {
             display: flex;
             flex-direction: column;
             padding: 0;
-            margin: -20px auto;
+            margin: 0 auto;
           }
 
           a {

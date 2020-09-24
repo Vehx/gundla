@@ -61,10 +61,6 @@ const About = (props) => {
           padding: var(--padding-y) var(--padding-x);
         }
 
-        .container {
-          padding-bottom: 40px;
-        }
-
         .container > div:first-of-type {
           display: flex;
           flex-direction: column;
@@ -99,6 +95,7 @@ const About = (props) => {
           }
           .about__desktop-image {
             display: inline;
+            margin-bottom: 60px;
           }
           .about__mobile-image {
             display: none;

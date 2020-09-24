@@ -1,7 +1,7 @@
 export const MosaicImage = (props) => {
   return (
     <>
-      <img src={props.src} alt={props.alt} />
+      <img src={props.src} alt={props.alt} loading="lazy" />
       <style jsx>{`
         img {
           width: calc(100% / 3);

@@ -25,7 +25,7 @@ export const EventHero = (props) => {
     <div className="event-hero">
       <div className="event-hero__img-container">
         <div>{dateHtml}</div>
-        <img src={urlFor(props.image)} alt={props.alt} />
+        <img src={urlFor(props.image)} alt={props.alt} loading="lazy" />
       </div>
       <div className="event-hero__text-container">
         <h2>{props.title}</h2>
@@ -108,21 +108,14 @@ export const EventHero = (props) => {
             width: 337px;
             padding: 0 0 96px 0;
           }
+          .event-hero__img-container > div {
+            width: 137px;
+            height: 65px;
+            padding-top: 8px;
+          }
 
           .event-hero h2 {
             font-size: 24px;
-          }
-
-           {
-            /* .event-hero:last-of-type .event-hero__link {
-            display: block;
-            margin-top: 50px;
-            text-align: right;
-          }
-
-          .event-hero:not(last-of-type) .event-hero__link {
-            display: none;
-          } */
           }
 
           .event-hero:not(:first-of-type) {

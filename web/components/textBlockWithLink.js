@@ -9,7 +9,7 @@ export const TextBlockWithLink = (props) => {
       <Link href={props.url}>
         <a>
           {props.urlText}
-          <img src="/link-arrow.png" alt="link arrow" />
+          <img src="/link-arrow.png" alt="pil" loading="lazy" />
         </a>
       </Link>
       <style jsx>

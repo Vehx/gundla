@@ -33,6 +33,7 @@ export const Layout = (props) => {
           href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" type="image/png" href="/gundla-flower.png" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -48,6 +49,10 @@ export const Layout = (props) => {
           padding: 0;
           box-sizing: border-box;
           font-family: var(--paragraph-font);
+        }
+
+        html {
+          scroll-behavior: smooth;
         }
 
         :root {
