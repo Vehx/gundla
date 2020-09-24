@@ -12,7 +12,7 @@ export const HappeningsSingle = (props) => {
           <Link href={props.url}>
             <a>
               <strong>{props.urlText}</strong>
-              <img src={"./link-arrow.png"} />
+              <img src={"./link-arrow.png"} loading="lazy" />
             </a>
           </Link>
         </div>

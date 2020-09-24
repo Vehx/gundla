@@ -8,17 +8,14 @@ import { localTimeConvert } from "../functions/localTimeConvert";
 import { capitalizeFirstLetter } from "../functions/capitalizeFirstLetter";
 
 const Events = (props) => {
-  // console.log(props);
   const eventsArray = [];
   for (const event in props.sanity.content) {
     eventsArray.push(props.sanity.content[event]);
   }
-  console.log(eventsArray[0].startTime);
 
   const eventsComponent = [];
   for (let i = 1; i < eventsArray.length; i++) {
     const el = eventsArray[i];
-    console.log(props);
     eventsComponent.push(
       <Event
         key={el._id}
@@ -97,6 +94,7 @@ const Events = (props) => {
               justify-content: center;
               align-items: center;
               margin: 0 auto;
+              padding-top: 20px;
             }
 
             .events__hero-container {

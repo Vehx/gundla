@@ -26,7 +26,7 @@ export default {
     {
       title: "Hero CTA",
       name: "heroCta",
-      type: "url",
+      type: "string",
     },
   ],
 };

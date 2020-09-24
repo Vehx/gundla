@@ -66,6 +66,7 @@ export const Event = (props) => {
           @media (min-width: 768px) {
             .event {
               padding: 20px 20px;
+              width: 572px;
             }
 
             .event__text {

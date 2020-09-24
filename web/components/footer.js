@@ -6,7 +6,11 @@ export const Footer = (props) => {
     <footer>
       <div className="footer-container">
         <div className="gundla-logo">
-          <img src="/gundla-logo-footer.png" alt="Gundla Gårdscafé" />
+          <img
+            src="/gundla-logo-footer.png"
+            alt="Gundla Gårdscafé"
+            loading="lazy"
+          />
         </div>
         <div className="footer-info">
           <div className="footer-nav">
@@ -29,6 +33,11 @@ export const Footer = (props) => {
               <li>
                 <Link href="/events">
                   <a>Evenemang</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/happenings">
+                  <a>Händer på gundla</a>
                 </Link>
               </li>
               <li>
@@ -57,6 +66,7 @@ export const Footer = (props) => {
                 width="32"
                 src="/facebook-icon.png"
                 alt="Facebook ikon"
+                loading="lazy"
               />
             </a>
             <a href={props.content.instagramUrl}>
@@ -65,6 +75,7 @@ export const Footer = (props) => {
                 width="32"
                 src="/instagram-icon.png"
                 alt="Instagram ikon"
+                loading="lazy"
               />
             </a>
           </div>
@@ -73,7 +84,7 @@ export const Footer = (props) => {
       <style jsx>
         {`
           footer {
-            background: url(/footer.png) no-repeat bottom center scroll;
+            background: url(/footer.png) repeat bottom scroll;
             color: var(--color-chocolate);
           }
 
@@ -81,17 +92,18 @@ export const Footer = (props) => {
             max-width: var(--max-width);
             display: flex;
             flex-direction: column;
-            padding: var(--padding-y) 0;
+            padding: 0;
             margin: 0 auto;
           }
 
           a {
             color: var(--color-chocolate);
             text-decoration: none;
+            line-height: 23px;
           }
 
           .gundla-logo {
-            margin: 0 auto 30px auto;
+            margin: 20px auto 30px auto;
           }
 
           .gundla-logo img {
@@ -123,6 +135,10 @@ export const Footer = (props) => {
           @media (min-width: 768px) {
             footer {
               background: url(/footer-desktop.png) repeat bottom center scroll;
+              height: 465px;
+            }
+            .footer-info {
+              margin-top: 100px;
             }
             .footer-nav {
               display: flex;

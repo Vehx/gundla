@@ -17,9 +17,10 @@ const Event = (props) => {
       <div className="background-color">
         <div className="slug">
           <div className="slug__link">
-            <Link href={`/events`}>
+            <Link href={"/events"}>
               <a>
-                <img src="/link-arrow-left.png"></img>Tillbaka
+                <img src="/link-arrow-left.png" alt="arrow" loading="lazy" />
+                Tillbaka
               </a>
             </Link>
           </div>
@@ -95,7 +96,8 @@ const Event = (props) => {
         }
         @media (min-width: 768px) {
           .slug {
-            padding-top: 200px;
+            padding-top: 150px;
+            padding-bottom: 50px;
             max-width: var(--max-width);
             margin: 0 auto;
           }

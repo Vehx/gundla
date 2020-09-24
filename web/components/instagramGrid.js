@@ -1,14 +1,15 @@
 export const InstagramGrid = (props) => {
   return (
     <div>
-      <h3>Följ oss på instagram</h3>
+      <h2>Följ oss på instagram</h2>
       <a href={props.href}>{props.children}</a>
       <style jsx>{`
         div {
-          padding: var(--padding-y) var(--padding-x);
+          padding: var(--padding-y) var(--padding-x) 40px var(--padding-x);
         }
-        h3 {
+        h2 {
           padding-left: 4px;
+          margin-bottom: 20px;
         }
         @media (min-width: 768px) {
           div {

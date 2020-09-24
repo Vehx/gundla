@@ -34,13 +34,18 @@ const Visit = (props) => {
               <p>
                 {props.sanity.content.urlText}
 
-                <img src="./link-arrow.png" />
+                <img src="./link-arrow.png" alt="pil" loading="lazy" />
               </p>
             </a>
             <div className="visit__block-two">
               <BlockContent blocks={props.sanity.content.blockSectionTwo} />
             </div>
-            <img className="visit__sunflower" src="./solros.png" alt="solros" />
+            <img
+              className="visit__sunflower"
+              src="./solros.png"
+              alt="solros"
+              loading="lazy"
+            />
           </div>
         </div>
         <div className="visit__map">

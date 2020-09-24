@@ -72,7 +72,7 @@ const Happenings = (props) => {
           .happenings {
             margin: 0 auto;
             max-width: 532px;
-            padding: 0;
+            padding: 0 0 30px 0;
           }
 
           h2 {

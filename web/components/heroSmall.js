@@ -1,7 +1,7 @@
 export const HeroSmall = (props) => {
   return (
     <div>
-      <img src={props.src} alt={props.alt}></img>
+      <img src={props.src} alt={props.alt} loading="lazy"></img>
       <style jsx>{`
         img {
           width: 100%;

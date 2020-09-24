@@ -43,7 +43,7 @@ const Order = (props) => {
           align-items: center;
         }
         .order__text {
-          padding: var(--padding-y) var(--padding-x);
+          padding: var(--padding-y) var(--padding-x) 40px var(--padding-x);
         }
         .order > div {
           max-width: 512px;
@@ -68,6 +68,10 @@ const Order = (props) => {
           h2,
           .order > div > div {
             text-align: center;
+          }
+
+          .order__text {
+            margin-bottom: 50px;
           }
 
           img {

@@ -8,7 +8,11 @@ export const MenuItems = (props) => {
           <a>
             <p>Hem</p>
             {!props.isAtTop && (
-              <img src="/gundla-flower.png" alt="gundla flower" />
+              <img
+                src="/gundla-flower.png"
+                alt="gundla flower"
+                loading="lazy"
+              />
             )}
           </a>
         </Link>
@@ -101,6 +105,10 @@ export const MenuItems = (props) => {
           .show {
             color: var(--color-black) !important;
           }
+            ul li a:hover {
+              text-decoration: underline;
+
+            }
           }
         }
       `}</style>
