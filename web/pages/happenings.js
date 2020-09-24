@@ -3,7 +3,7 @@ import groq from "groq";
 import { Layout } from "../components/layout";
 import { HeroSmall } from "../components/heroSmall";
 import { urlFor } from "../functions/urlFor";
-import { HappeningsSingle } from "./happeningsSingle";
+import { HappeningsSingle } from "../components/happeningsSingle";
 
 const Happenings = (props) => {
   console.log(props);
