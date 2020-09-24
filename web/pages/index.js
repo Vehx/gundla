@@ -1,5 +1,6 @@
 import client from "../client";
 import groq from "groq";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/layout";
 import { EventHero } from "../components/eventHero";
 import { InstagramImage } from "../components/insatagramImage";
@@ -10,13 +11,37 @@ import { TextBlockWithLink } from "../components/textBlockWithLink";
 import { FullScreenImage } from "../components/fullScreenImage";
 
 const Index = (props) => {
-  const instagramImages = props.pictures.map((picture) => (
-    <InstagramImage
-      key={picture.node.id}
-      src={picture.node}
-      alt={picture.node.accessibility_caption}
-    />
-  ));
+  const [instaData, setInstaData] = useState("");
+
+  const getInstagramPictures = async () => {
+    const pictures = [];
+    // Fetching data from instagram
+    const baseUrl = "https://www.instagram.com";
+    const profileName = "gundlagardscafe";
+    const profileUrl = `${baseUrl}/${profileName}`;
+    const jsonDataUrl = `${profileUrl}/?__a=1`;
+    const response = await fetch(jsonDataUrl);
+    const jsonData = await response.json();
+    const allPictures =
+      jsonData.graphql.user.edge_owner_to_timeline_media.edges;
+
+    for (let i = 0; i < 4; i++) {
+      const element = allPictures[i];
+      pictures.push(element);
+    }
+    const instagramComponents = pictures.map((picture) => (
+      <InstagramImage
+        key={picture.node.id}
+        src={picture.node}
+        alt={picture.node.accessibility_caption}
+      />
+    ));
+    setInstaData(instagramComponents);
+  };
+
+  useEffect(() => {
+    getInstagramPictures();
+  }, []);
 
   let eventHeroComponents = [];
   for (let i = 0; i < 3; i++) {
@@ -65,7 +90,7 @@ const Index = (props) => {
           <div className="event-hero-container">{eventHeroComponents}</div>
 
           <InstagramGrid href="https://www.instagram.com/gundlagardscafe">
-            {instagramImages}
+            {instaData}
           </InstagramGrid>
         </div>
       </div>
@@ -98,25 +123,42 @@ Index.getInitialProps = async function (context) {
   const query = groq`{ 'event':*[_type == "event"]|order(startTime)[0..2],'content': *[_type == "home"][0], 'footer': *[_type == "footer"][0]}`;
   const sanity = await client.fetch(query, { slug });
 
-  // Fetching data from instagram
-  const baseUrl = "https://www.instagram.com";
-  const profileName = "gundlagardscafe";
-  const profileUrl = `${baseUrl}/${profileName}`;
-  const jsonDataUrl = `${profileUrl}/?__a=1`;
-  const response = await fetch(jsonDataUrl);
-  const jsonData = await response.json();
-  const allPictures = jsonData.graphql.user.edge_owner_to_timeline_media.edges;
-  const pictures = [];
-
-  for (let i = 0; i < 4; i++) {
-    const element = allPictures[i];
-    pictures.push(element);
-  }
-
   return {
     sanity,
-    pictures,
+    // pictures,
   };
 };
 
 export default Index;
+
+// const [instaData, setInstaData] = React.useState("");
+
+//   React.useEffect(() => {
+//     fetch("https://www.instagram.com/gundlagardscafe/?__a=1%22)
+//       .then((resp) => resp.json())
+//       .then((json) => setInstaData(json));
+//   }, [0]);
+
+//   let instaGrid = [];
+
+//   if (instaData) {
+//     instaGrid = instaData.graphql.user.edge_owner_to_timeline_media.edges;
+//   }
+// <InstagramFeed instagramData={instaGrid} />
+// const InstagramFeed = (props) => {
+//   const url = props.instagramData.slice(0, 4);
+
+//   return (
+//     <StyledImage>
+//       {url.map((item, i) => (
+//         <div className="instagramImgWrapper" key={i}>
+//           <a href="https://www.instagram.com/gundlagardscafe/%22%3E
+//             <img loading="lazy" src={item.node.display_url} key={i}></img>
+//           </a>
+//         </div>
+//       ))}
+//     </StyledImage>
+//   );
+// };
+
+// export default InstagramFeed;
