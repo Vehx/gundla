@@ -4,4 +4,7 @@ web/.next
 web/.env
 studio/node_modules
 studio/dist
+studio/tsconfig.json
 .DS_Store
+LICENSE
+README.md
