@@ -1,0 +1,24 @@
+{
+  "name": "gundla",
+  "version": "1.0.0",
+  "description": "School assignment at YRGO. During four weeks we developed a web page for Gundla Gårdscafé together with designer students. Since the customer in this case was not interested in coding herself, we have used the CMS system *Sanity* so that the customer can manage the website herself. On the front end, we have used the React based framework *Next.js* which worked really well with Sanity since it made it possible to use JavaScript on both the front- and the backend.",
+  "main": "index.js",
+  "dependencies": {
+    "prettier": "^2.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npx prettier -c *"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vehx/gundla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vehx/gundla/issues"
+  },
+  "homepage": "https://github.com/Vehx/gundla#readme"
+}
